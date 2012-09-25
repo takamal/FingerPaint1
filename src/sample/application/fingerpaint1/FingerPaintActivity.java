@@ -127,7 +127,6 @@ public class FingerPaintActivity extends Activity implements OnTouchListener{
 			imageNumber++;
 		}while(file.exists());
 			if(writeImage(file)){
-				//���X�g14 - �ǉ������͕̂ۑ�����scanMedia���\�b�h���Ăяo���悤�ɂ���B
 				scanMedia(file.getPath());
 				SharedPreferences.Editor editor = prefs.edit();
 				editor.putInt("imageNumber", imageNumber);
@@ -184,10 +183,15 @@ public class FingerPaintActivity extends Activity implements OnTouchListener{
 					@Override
 					public void onClick(DialogInterface dialog, int item) {
 						paint.setColor(colors[item]);
+						paint.setStrokeWidth(5);
 					}
 				});
 				ab.show();
 				break;
+			case R.id.menu_eraser:
+					this.paint.setColor(0xffffffff);
+					this.paint.setStrokeWidth(27);
+					break;
 			case R.id.menu_new:
 				ab = new AlertDialog.Builder(this);
 				ab.setTitle(R.string.menu_new);
@@ -241,8 +245,8 @@ public class FingerPaintActivity extends Activity implements OnTouchListener{
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
 		BitmapFactory.decodeFile(path, options);
-		int oh = options.outWidth;
-		int ow = options.outHeight;
+		int oh = options.outHeight;
+		int ow = options.outWidth;
 		
 		if(ow > oh) {
 			landscape = true;
@@ -261,7 +265,8 @@ public class FingerPaintActivity extends Activity implements OnTouchListener{
 					bm.getWidth(), bm.getHeight(), matrix, false);
 		}
 		
-		bm = Bitmap.createScaledBitmap(bm, (int)(w), (int)(w*(((double)oh)/((double)ow))), false);
+		bm = Bitmap.createScaledBitmap(bm,
+				(int)(w), (int)(w*(((double)oh)/((double)ow))), false);
 		Bitmap offBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
 		Canvas offCanvas = new Canvas(offBitmap);
 		offCanvas.drawBitmap(bm, 0, (h-bm.getHeight())/2, null);

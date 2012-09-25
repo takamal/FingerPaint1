@@ -15,7 +15,7 @@
         <activity
             android:name=".FingerPaintActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation">
+            android:screenOrientation="unspecified" android:configChanges="keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

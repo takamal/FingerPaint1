@@ -25,6 +25,7 @@ public final class R {
         public static final int imageView1=0x7f080000;
         public static final int linearLayout1=0x7f080002;
         public static final int menu_color_change=0x7f080005;
+        public static final int menu_eraser=0x7f080007;
         public static final int menu_new=0x7f080006;
         public static final int menu_open=0x7f080004;
         public static final int menu_save=0x7f080003;
@@ -46,6 +47,7 @@ public final class R {
         public static final int filelist_empty=0x7f050007;
         public static final int menu_color_change=0x7f05000c;
         public static final int menu_encode=0x7f050009;
+        public static final int menu_eraser=0x7f050012;
         public static final int menu_export=0x7f050006;
         public static final int menu_import=0x7f050005;
         public static final int menu_new=0x7f05000d;
