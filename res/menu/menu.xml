@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:id="@+id/menu_save" android:icon="@android:drawable/ic_menu_save" android:title="@string/menu_save"></item>
     <item android:id="@+id/menu_open" android:title="@string/menu_open" android:icon="@android:drawable/ic_menu_set_as"></item>
-    <item android:id="@+id/menu_color_change" android:title="@string/menu_color_change" android:icon="@android:drawable/ic_menu_edit"></item>
     <item android:id="@+id/menu_new" android:icon="@android:drawable/ic_menu_add" android:title="@string/menu_new"></item>
-    <item android:id="@+id/menu_eraser" android:title="@string/menu_eraser" android:icon="@android:drawable/ic_menu_rotate"></item>
+    <item android:id="@+id/menu_color_change" android:icon="@android:drawable/ic_menu_edit" android:title="@string/menu_color_change"></item>
+    <item android:id="@+id/menu_eraser" android:icon="@android:drawable/ic_menu_close_clear_cancel" android:title="@string/menu_eraser"></item>
     
 
 </menu>
