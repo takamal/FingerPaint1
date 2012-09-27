@@ -22,7 +22,9 @@ import android.graphics.Matrix;
 
 //���X�g5
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import android.os.Environment;
 import android.content.SharedPreferences;
@@ -136,15 +138,26 @@ public class FingerPaintActivity extends Activity implements OnTouchListener{
 	}
 	
 
-	boolean writeImage(File file) {
+	private boolean writeImage(File file) {
+		FileOutputStream fo = null;
 		try {
-			FileOutputStream fo = new FileOutputStream(file);
+			fo = new FileOutputStream(file); //ディスクに書き出しを行う。
 			bitmap.compress(CompressFormat.PNG, 100, fo);
 			fo.flush();
+			//TODO これはひどい
 			fo.close();
-		} catch(Exception e) {
-			System.out.println(e.getLocalizedMessage());
-			return false;
+		}catch(FileNotFoundException r){
+			r.printStackTrace();
+		}catch(IOException r) {
+//			throw r;
+//			System.out.println(e.getLocalizedMessage());
+//			return false;
+		}finally{
+			try {
+				fo.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
 		}
 		return true;
 	}
